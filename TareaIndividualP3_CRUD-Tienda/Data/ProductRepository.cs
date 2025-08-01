@@ -19,5 +19,22 @@ namespace TareaIndividualP3_CRUD_Tienda.Data
                 Products.Add(product);
             }
         }
+
+        public static Product? GetById(int id)
+        {
+            return Products.FirstOrDefault(p => p.Id == id);
+        }
+
+        public static void UpdateProduct(Product product)
+        {
+            var existingProduct = GetById(product.Id);
+            if (existingProduct != null)
+            {
+                existingProduct.Name = product.Name;
+                existingProduct.Description = product.Description;
+                existingProduct.Price = product.Price;
+                existingProduct.Stock = product.Stock;
+            }
+        }
     }
 }
