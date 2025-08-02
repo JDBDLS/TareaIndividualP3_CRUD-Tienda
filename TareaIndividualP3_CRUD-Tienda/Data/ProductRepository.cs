@@ -36,5 +36,14 @@ namespace TareaIndividualP3_CRUD_Tienda.Data
                 existingProduct.Stock = product.Stock;
             }
         }
+
+        public static void DeleteProduct(int id)
+        {
+            var product = GetById(id);
+            if (product != null)
+            {
+                Products.Remove(product);
+            }
+        }
     }
 }
